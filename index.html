@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Te invito a mi CUMpleaños! 🦭🎂</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>¡Estás oficialmente invitadx a mi cumpleaños! 🙀</h1>
+    <p><strong>Fecha:</strong> 27 de septiembre</p>
+    <p><strong>Ubicación:</strong> Calle 15 de Septiembre #70, Los Dolores, Tetla.</p>
+    <p>
+      <a href="https://maps.app.goo.gl/1uXJ9mANQvWoPYMh6" target="_blank">
+        Ver en Google Maps 📍 (La ubicación no es precisa, de preferencia avísame que llegaste y yo bajo por ti 🦭)
+      </a>
+    </p>
+    <p><strong>Hora:</strong> 2:30 PM</p>
+    <p id="contador"></p>
+
+<script>
+  // Fecha de la fiesta
+  const fechaFiesta = new Date("September 27, 2026 14:30:00").getTime();
+
+  function actualizarContador() {
+    const ahora = new Date().getTime();
+    const diferencia = fechaFiesta - ahora;
+
+    if (diferencia <= 0) {
+      document.getElementById("contador").innerHTML = "¡HOY ES EL YOSSFEST! 🐧🎉";
+      return;
+    }
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    document.getElementById("contador").innerHTML =
+      `Faltan ${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos ⏳`;
+  }
+
+  setInterval(actualizarContador, 1000);
+</script>
+
+
+    <!-- Botón de confirmación -->
+    <button onclick="window.open('https://forms.gle/TgNrXCjZCy5HxT12A','_blank')">
+      Confirmar asistencia ✨
+    </button>
+  </div>
+
+  <!-- Marco de personajes -->
+  <div class="chibi-frame">
+    <div class="chibi-top">
+      <img src="chibirobin.png" alt="Chibi Robin">
+      <img src="chibiivan.png" alt="Chibi Ivan">
+      <img src="chibiwanderer.png" alt="Chibi Wanderer">
+    </div>
+    <div class="chibi-bottom">
+      <img src="chibiorv.png" alt="Chibi Orv">
+      <img src="chibiroier.png" alt="Chibi Roier">
+      <img src="chibigojo.png" alt="Chibi Gojo">
+    </div>
+    <div class="chibi-left">
+      <img src="chibileon.png" alt="Chibi Leon">
+      <img src="chibiseal.png" alt="Chibi Seal">
+      <img src="chibimura.png" alt="Chibi Nakamura">
+    </div>
+    <div class="chibi-right">
+      <img src="chibiluma.png" alt="Chibi Maluma">
+      <img src="usagichan.png" alt="Usagi Chan">
+      <img src="chibiuriel.png" alt="Chibi Uriel">
+    </div>
+  </div>
+</body>
+</html>
+

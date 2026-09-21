@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+  /* Fondo general */
+  background-image: url("fondo.webp.png");
+  background-size:auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Tarjeta con fondo */
+.card {
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+
+  /* Imagen de fondo en la tarjeta */
+  background-image: url("carta.webp.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Overlay para que el texto se lea bien */
+  position: relative;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+
+h1 {
+  color: #06daf2;
+}
+
+button {
+  background: #9b1ee9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #2f18c2;
+}
+
+/* Animaciones */
+@keyframes saltar {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-20px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes flotar {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* Marco alrededor */
+.chibi-frame {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Arriba */
+.chibi-top {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+}
+
+/* Abajo */
+.chibi-bottom {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+}
+
+/* Izquierda */
+.chibi-left {
+  position: absolute;
+  top: 50%; left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Derecha */
+.chibi-right {
+  position: absolute;
+  top: 50%; right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chibi-frame img {
+  width: 80px;
+}
+
+.chibi-frame img:nth-child(odd) {
+  animation: saltar 2s infinite;
+}
+
+.chibi-frame img:nth-child(even) {
+  animation: flotar 3s infinite;
+}
+
+/* Ajustes generales para móviles */
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  .chibi-frame img {
+    width: 60px;
+  }
+
+  .chibi-top, .chibi-bottom {
+    gap: 8px;
+  }
+
+  .chibi-left, .chibi-right {
+    gap: 8px;
+  }
+}
+
+/* Animación fade-in */
+.fade-in {
+  opacity: 0;
+  animation: aparecer 1.5s forwards;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
